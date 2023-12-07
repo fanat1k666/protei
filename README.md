@@ -25,6 +25,8 @@ Ivanov Ivan Ivanovich☀️
   "port" - порт
 
 ## Для запуска необходимо:
+  подтянем зависимости 
+  go mod tidy
   запустить сервер
   go build protei/cmd/server
   запустить клиент
@@ -32,3 +34,6 @@ Ivanov Ivan Ivanovich☀️
 
   Если у вас при запуске клиента произошла ошибка "could not greet: rpc error: code = DeadlineExceeded desc = context deadline exceeded",
   тогда проверьте конфигурацию, вероятно вы неверно указали значения
+
+  Запустить линтер 
+  golangci-lint run
