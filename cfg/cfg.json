@@ -1,0 +1,11 @@
+{
+  "crdntls": {
+    "address": "address",
+    "port": "12345",
+    "login": "login",
+    "password": "password"
+  },
+  "server": {
+    "port": "12345"
+  }
+}

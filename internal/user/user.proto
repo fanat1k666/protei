@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "google.golang.org/grpc/examples/helloworld/helloworld";
+
+package user;
+
+service UserSearch {
+
+  rpc FindUser (UserRequest) returns (UserReply) {}
+}
+
+message UserRequest {
+  string mail = 1;
+}
+
+
+message UserReply {
+  string displayName = 1;
+}
