@@ -4,7 +4,7 @@
 // 	protoc        v3.12.4
 // source: user/user.proto
 
-package proteigrpc
+package helloworld
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -67,7 +67,6 @@ func (x *UserRequest) GetMail() string {
 	return ""
 }
 
-// The response message containing the greetings
 type UserReply struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

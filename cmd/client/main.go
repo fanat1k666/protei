@@ -4,7 +4,7 @@ import (
 	"context"
 	"flag"
 	"log"
-	proteigrpc "protei/internal/user"
+	helloworld "protei/internal/user"
 	"time"
 
 	"google.golang.org/grpc"
@@ -28,12 +28,12 @@ func main() {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
-	c := proteigrpc.NewUserSearchClient(conn)
+	c := helloworld.NewUserSearchClient(conn)
 
 	// Contact the server and print out its response.
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.FindUser(ctx, &proteigrpc.UserRequest{Mail: *mail})
+	r, err := c.FindUser(ctx, &helloworld.UserRequest{Mail: *mail})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}

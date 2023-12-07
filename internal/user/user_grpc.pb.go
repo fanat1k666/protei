@@ -4,7 +4,7 @@
 // - protoc             v3.12.4
 // source: user/user.proto
 
-package proteigrpc
+package helloworld
 
 import (
 	context "context"
@@ -22,7 +22,6 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserSearchClient interface {
-	// Sends a greeting
 	FindUser(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserReply, error)
 }
 
@@ -47,7 +46,6 @@ func (c *userSearchClient) FindUser(ctx context.Context, in *UserRequest, opts .
 // All implementations must embed UnimplementedUserSearchServer
 // for forward compatibility
 type UserSearchServer interface {
-	// Sends a greeting
 	FindUser(context.Context, *UserRequest) (*UserReply, error)
 	mustEmbedUnimplementedUserSearchServer()
 }

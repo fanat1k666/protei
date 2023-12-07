@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"protei/internal/entity"
-	proteigrpc "protei/internal/user"
+	helloworld "protei/internal/user"
 	"time"
 )
 
@@ -25,7 +25,7 @@ var emoji = map[int]string{
 	13: "☀️",
 }
 
-func (s *Server) FindUser(ctx context.Context, in *proteigrpc.UserRequest) (*proteigrpc.UserReply, error) {
+func (s *Server) FindUser(ctx context.Context, in *helloworld.UserRequest) (*helloworld.UserReply, error) {
 	log.Printf("Received: %v", in.GetMail())
 	u := entity.UserMailIn{Mail: in.GetMail()}
 	f, err := s.c.HandlerFindUserId(u)
@@ -46,7 +46,7 @@ func (s *Server) FindUser(ctx context.Context, in *proteigrpc.UserRequest) (*pro
 			return nil, fmt.Errorf("can't parse dataFrom: %w", err)
 		}
 		if (dataFrom.Before(time.Now())) && (dataTo.After(time.Now())) {
-			return &proteigrpc.UserReply{DisplayName: f.Data[0].DisplayName + " " + emoji[r.Data[i].ReasonId]}, nil
+			return &helloworld.UserReply{DisplayName: f.Data[0].DisplayName + " " + emoji[r.Data[i].ReasonId]}, nil
 		}
 	}
 	return nil, nil

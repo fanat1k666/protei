@@ -9,14 +9,14 @@ import (
 	"net/http"
 	"protei/internal/ems"
 	"protei/internal/server"
-	proteigrpc "protei/internal/user"
+	helloworld "protei/internal/user"
 
 	"google.golang.org/grpc"
 )
 
 func main() {
 	if err := initCfg(); err != nil {
-		log.Fatalf("error initializing congigs: %s", err.Error())
+		log.Fatalf("error initializing configs: %s", err.Error())
 	}
 	flag.Parse()
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", viper.GetString("server.port")))
@@ -28,7 +28,7 @@ func main() {
 		viper.GetString("crdntls.login"),
 		viper.GetString("crdntls.password"))
 	s := grpc.NewServer()
-	proteigrpc.RegisterUserSearchServer(s, server.NewServer(e))
+	helloworld.RegisterUserSearchServer(s, server.NewServer(e))
 	log.Printf("server listening at %v", lis.Addr())
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
