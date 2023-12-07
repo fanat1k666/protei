@@ -10,6 +10,8 @@
 {
   "mail": "exapmple@gmail.com"
 }
+Пример ожидаемого ответа
+Ivanov Ivan Ivanovich☀️
 
 ## Конфигурация (необходимо указать свои параметры)
 
@@ -21,3 +23,12 @@
 
 "server" отвечает за парметры сервера
   "port" - порт
+
+## Для запуска необходимо:
+  запустить сервер
+  go build protei/cmd/server
+  запустить клиент
+  go build protei/cmd/client
+
+  Если у вас при запуске клиента произошла ошибка "could not greet: rpc error: code = DeadlineExceeded desc = context deadline exceeded",
+  тогда проверьте конфигурацию, вероятно вы неверно указали значения
