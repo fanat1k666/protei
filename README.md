@@ -10,30 +10,30 @@
 {
   "mail": "exapmple@gmail.com"
 }
-Пример ожидаемого ответа
+### Пример ожидаемого ответа
 Ivanov Ivan Ivanovich☀️
 
 ## Конфигурация (необходимо указать свои параметры)
 
-"crdntls" отвечает за параметры для коннекта к внешнему http, где:
+### "crdntls" отвечает за параметры для коннекта к внешнему http, где:
   "address" - адресс
   "port" - порт
   "login" - логин, для авторизации к внешнему апи
   "password" - пароль, для авторизации к внешнему апи
 
-"server" отвечает за парметры сервера
+### "server" отвечает за парметры сервера
   "port" - порт
 
 ## Для запуска необходимо:
   подтянем зависимости 
   go mod tidy
-  запустить сервер
+  ### запустить сервер
   go build protei/cmd/server
-  запустить клиент
+  ### запустить клиент
   go build protei/cmd/client
 
-  Если у вас при запуске клиента произошла ошибка "could not greet: rpc error: code = DeadlineExceeded desc = context deadline exceeded",
+  ### Если у вас при запуске клиента произошла ошибка "could not greet: rpc error: code = DeadlineExceeded desc = context deadline exceeded",
   тогда проверьте конфигурацию, вероятно вы неверно указали значения
 
-  Запустить линтер 
+  ### Запустить линтер 
   golangci-lint run
